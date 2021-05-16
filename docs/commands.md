@@ -10,3 +10,9 @@ rails g migration AddParentCategoryToCategory
   add_reference :categories, :parent_category, foreign_key: { to_table: :categories }, null: true
 
 rails g model Offer product:references started_at:datetime ended_at:datetime discount:decimal{5-2} status:integer
+
+# TODO: add the User and UserAddress models
+
+rails g model Order user:references status:integer total_price:decimal{7-2} paid_at:datetime status:integer # TODO
+
+rails g model OrderProduct order:references product:references quantity:integer unit_price:decimal{7-2} discount:decimal{5-2}
