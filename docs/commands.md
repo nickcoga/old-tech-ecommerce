@@ -19,6 +19,6 @@ rails g model Useraddress user:references address
 
 # TODO: add the User and UserAddress models
 
-rails g model Order user:references status:integer total_price:decimal{7-2} paid_at:datetime status:integer # TODO
+rails g model Order user:references status:integer total_price:decimal{7-2} paid_at:datetime user_address:references # TODO
 
 rails g model OrderProduct order:references product:references quantity:integer unit_price:decimal{7-2} discount:decimal{5-2}
