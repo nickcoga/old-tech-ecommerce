@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
   has_many :product_stores, dependent: :destroy
+  has_many :offers, dependent: :destroy
 end
 
 # == Schema Information
