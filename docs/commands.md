@@ -11,6 +11,8 @@ rails g migration AddParentCategoryToCategory
 
 rails g model Offer product:references started_at:datetime ended_at:datetime discount:decimal{5-2} status:integer
 
+rails g model User name email phone password_digest token:token status:integer
+
 # TODO: add the User and UserAddress models
 
 rails g model Order user:references status:integer total_price:decimal{7-2} paid_at:datetime status:integer # TODO
