@@ -4,6 +4,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :user_address, presence: true
+
+  has_many :user_addresses, dependent: :destroy
 
   # def invalidate_token
   #   update(token: nil)
