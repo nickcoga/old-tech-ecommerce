@@ -13,6 +13,8 @@ rails g model Offer product:references started_at:datetime ended_at:datetime dis
 
 rails g model User name email phone password_digest token:token status:integer
 
+User.create(email: "john@doe.com", name: "john doe", password: "mysecretpassword", phone: "33344", status: 1)
+
 # TODO: add the User and UserAddress models
 
 rails g model Order user:references status:integer total_price:decimal{7-2} paid_at:datetime status:integer # TODO
