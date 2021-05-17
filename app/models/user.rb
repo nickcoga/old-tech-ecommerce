@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_secure_token
   has_secure_password
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/ }
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :user_address, presence: true
 
