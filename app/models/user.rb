@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :user_addresses, dependent: :destroy
   has_many :order, dependent: :destroy
+  has_many :invoices, dependent: :destroy
 
   # def invalidate_token
   #   update(token: nil)
