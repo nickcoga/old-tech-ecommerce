@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_212133) do
+ActiveRecord::Schema.define(version: 2021_05_17_222144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 2021_05_17_212133) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "parent_category_id"
     t.index ["parent_category_id"], name: "index_categories_on_parent_category_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "user_address_id", null: false
+    t.integer "invoice_number"
+    t.decimal "sub_total", precision: 7, scale: 2
+    t.decimal "igv", precision: 5, scale: 2
+    t.decimal "net_total", precision: 7, scale: 2
+    t.integer "status"
+    t.integer "ruc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["invoice_number"], name: "index_invoices_on_invoice_number", unique: true
+    t.index ["order_id"], name: "index_invoices_on_order_id"
+    t.index ["user_address_id"], name: "index_invoices_on_user_address_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -112,6 +130,9 @@ ActiveRecord::Schema.define(version: 2021_05_17_212133) do
   end
 
   add_foreign_key "categories", "categories", column: "parent_category_id"
+  add_foreign_key "invoices", "orders"
+  add_foreign_key "invoices", "user_addresses"
+  add_foreign_key "invoices", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
