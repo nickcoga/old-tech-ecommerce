@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :user_address, presence: true
 
   has_many :user_addresses, dependent: :destroy
+  has_many :order, dependent: :destroy
 
   # def invalidate_token
   #   update(token: nil)
