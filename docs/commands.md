@@ -28,3 +28,5 @@ rails g model Invoice user:references order:references user_address:references i
 ---
 
 rails g controller Stores show create update destroy # creates controllers, views, helper, and style files
+
+rails g controller Offers show create update destroy
