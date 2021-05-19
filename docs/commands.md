@@ -30,3 +30,14 @@ rails g model Invoice user:references order:references user_address:references i
 rails g controller Stores show create update destroy # creates controllers, views, helper, and style files
 
 rails g controller Offers show create update destroy
+
+rails g controller Categories index show create update destroy --no-helper --no-assets --no-template-engine
+
+rails g controller Products index show create update destroy
+
+# TODO: move to seeds
+
+store = Store.create!(address: 'gaaa', url_address: "ga.com")
+Category.create!(name: 'laptops', status: 1, parent_category: c)
+Product.create!(name: "g17", unit_price: 100, brand: "lg", weight: 12.4, model: "lg-g17", category: Category.last)
+Offer.create!(product: Product.last, started_at: 1.week.ago, ended_at: 3.days.ago, discount: 22.22, status: 1)
