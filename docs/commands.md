@@ -33,7 +33,7 @@ rails g controller Offers show create update destroy
 
 rails g controller Categories index show create update destroy --no-helper --no-assets --no-template-engine
 
-rails g controller Products index show create update destroy
+rails g controller Products index show create update destroy --no-helper --no-assets --no-template-engine
 
 # TODO: move to seeds
 
